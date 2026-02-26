@@ -158,17 +158,20 @@
     vim
     git
     tree
+    (discord.override {
+      withVencord = true;
+    })
     ruby
     man
     kitty
     librewolf
-    vesktop
     input-remapper
     qimgv
     lunar-client
     vlc
     neofetch
     r2modman
+    wine
     protonplus
     cider-2
     openssh
