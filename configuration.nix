@@ -79,7 +79,12 @@
 # Print
   services.printing.enable = true;
 
-
+# fonts
+  fonts.packages = with pkgs; [
+    noto-fonts
+    noto-fonts-cjk-sans
+    noto-fonts-color-emoji
+  ];
 
 # Sound
   services.pulseaudio.enable = false;
@@ -137,11 +142,14 @@
   environment.systemPackages = with pkgs; [
     vim
     git
+    tree
+    man
     kitty
     librewolf
     vesktop
     input-remapper
     qimgv
+    lunar-client
     vlc
     neofetch
     r2modman
