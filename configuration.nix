@@ -10,63 +10,23 @@
       ./hardware-configuration.nix
     ];
 
-  # display manager
-services.displayManager.ly.enable = true;
-services.displayManager.ly.package = pkgs.ly;
-
-  #plasma
-  services.desktopManager.plasma6.enable = true;
-  environment.plasma6.excludePackages = with pkgs.kdePackages; [
-  plasma-browser-integration
-  konsole
-  elisa
-  gwenview
-  discover
-  okular
-];
-# gamemode
-programs.gamemode.enable = true;
-# steam
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    extraPackages = with pkgs; [
-      kdePackages.breeze
-    ];
-  };
-
-
-
-  # Bootloader.
+# Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use latest kernel.
+# Kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = "nixos"; # Define your hostname.
+# Hostname
+  networking.hostName = "nixos";
 
-
-  # Enable networking
+# Network
   networking.networkmanager.enable = true;
 
-## 2nd drive
-  fileSystems."/mnt/1TB" = {
-    device = "UUID=8860acb2-e11e-4650-b761-5f5df82148a8";
-    fsType = "xfs";
-    options = [ "defaults" ];
-  };
-
-# flatpak
-services.flatpak.enable = true;
-
-security.sudo.extraConfig = "Defaults pwfeedback";
-
-  # Set your time zone.
+# Timezone
   time.timeZone = "Europe/Amsterdam";
 
-  # Select internationalisation properties.
+# Locale
   i18n.defaultLocale = "nl_NL.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -81,22 +41,47 @@ security.sudo.extraConfig = "Defaults pwfeedback";
     LC_TIME = "nl_NL.UTF-8";
   };
 
+  services.xserver.enable = true;
+
+# Plasma & Displaymanager
+  services.displayManager.ly = {
+    enable = true;
+
+    settings = {
+      lang = "nl";
+      numlock = true;
+    };
+  };
+
+  environment.etc."ly/lang/nl.ini".source =
+    /home/remi/.config/ly/nl.ini;
 
 
 
-  # Configure keymap in X11
+  services.desktopManager.plasma6.enable = true;
+  environment.plasma6.excludePackages = with pkgs.kdePackages; [
+  plasma-browser-integration
+  konsole
+  elisa
+  gwenview
+  discover
+  okular
+];
+
+# Keymap
   services.xserver.xkb = {
     layout = "de";
     variant = "";
   };
-
-  # Configure console keymap
   console.keyMap = "de";
 
-  # Enable CUPS to print documents.
+
+# Print
   services.printing.enable = true;
 
-  # Enable sound with pipewire.
+
+
+# Sound
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -105,11 +90,10 @@ security.sudo.extraConfig = "Defaults pwfeedback";
     alsa.support32Bit = true;
     pulse.enable = true;
 
-
   };
 
-  # user account
-  users.users.remilia = {
+# User
+  users.users.remi = {
     isNormalUser = true;
     description = "Remilia";
     extraGroups = [ "networkmanager" "wheel" ];
@@ -118,26 +102,52 @@ security.sudo.extraConfig = "Defaults pwfeedback";
     ];
   };
 
+# 2nd drive
+  fileSystems."/mnt/1TB" = {
+    device = "UUID=78acee78-b900-4060-b91d-b9a261a5b747";
+    fsType = "xfs";
+    options = [ "defaults" ];
+  };
 
+# flatpak
+  services.flatpak.enable = true;
+
+# sudo pw
+  security.sudo.extraConfig = "Defaults pwfeedback";
+
+# Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+# gamemode
+  programs.gamemode.enable = true;
+
+# steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    extraPackages = with pkgs; [
+      kdePackages.breeze
+    ];
+  };
+
+
+
+# Packages
   environment.systemPackages = with pkgs; [
-    pkgs.librewolf
     vim
+    git
+    kitty
+    librewolf
     vesktop
     input-remapper
-    lunar-client
     qimgv
     vlc
-    kitty
     neofetch
-    fastfetch
     r2modman
-    git
-    protonup-qt
-    appimage-run
+    protonplus
+    cider-2
+    openssh
   ];
 
 
