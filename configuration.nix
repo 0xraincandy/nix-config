@@ -15,7 +15,22 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
 # Kernel
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
+
+# bluetooth
+  hardware.bluetooth = {
+  enable = true;
+  powerOnBoot = true;
+  settings = {
+    General = {
+      Experimental = true;
+      FastConnectable = true;
+    };
+    Policy = {
+      AutoEnable = true;
+    };
+  };
+};
 
 # Hostname
   networking.hostName = "nixos";
@@ -143,6 +158,7 @@
     vim
     git
     tree
+    ruby
     man
     kitty
     librewolf
