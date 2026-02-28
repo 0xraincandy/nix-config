@@ -172,6 +172,7 @@
     neofetch
     r2modman
     wine
+    dxvk
     protonplus
     cider-2
     openssh
