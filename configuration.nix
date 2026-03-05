@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+
+
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -11,7 +14,7 @@
     ];
 
 # Bootloader
-  boot.loader.systemd-boot.enable = false;  
+  boot.loader.systemd-boot.enable = false;
   boot.loader.efi.canTouchEfiVariables = false;
 
   boot.loader.grub = {
@@ -21,6 +24,10 @@
   efiInstallAsRemovable = true;
   theme = "/boot/grub/themes/GrubTheme";
 };
+
+# flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
 
 # Kernel
   boot.kernelPackages = pkgs.linuxPackages_zen;
@@ -61,7 +68,7 @@
     LC_NUMERIC = "nl_NL.UTF-8";
     LC_PAPER = "nl_NL.UTF-8";
     LC_TELEPHONE = "nl_NL.UTF-8";
-    LC_TIME = "nl_NL.UTF-8";
+    LC_TIME = "fi_FI.UTF-8";
   };
 
   services.xserver.enable = true;
@@ -77,7 +84,7 @@
   };
 
   environment.etc."ly/lang/nl.ini".source =
-    /home/remi/.config/ly/nl.ini;
+    /home/lieke/.config/ly/nl.ini;
 
 
 
@@ -121,18 +128,19 @@
   };
 
 # User
-  users.users.remi = {
+  users.users.lieke = {
     isNormalUser = true;
-    description = "Remilia";
+    description = "Lieke";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
+    #  thunderbird
     ];
   };
 
 # 2nd drive
   fileSystems."/mnt/1TB" = {
-    device = "UUID=78acee78-b900-4060-b91d-b9a261a5b747";
+    device = "UUID=8ccc2640-88ef-46bc-8284-b34bbb2c0681";
     fsType = "xfs";
     options = [ "defaults" ];
   };
@@ -152,8 +160,8 @@
 # steam
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
     extraPackages = with pkgs; [
       kdePackages.breeze
     ];
@@ -177,13 +185,14 @@
     qimgv
     lunar-client
     vlc
-    neofetch
     r2modman
     wine
     dxvk
     protonplus
     cider-2
     openssh
+    xfsprogs
+    unrar
   ];
 
 
