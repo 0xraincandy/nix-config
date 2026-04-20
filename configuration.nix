@@ -25,6 +25,7 @@
   theme = "/boot/grub/themes/GrubTheme";
 };
 
+
 # flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -84,7 +85,7 @@
   };
 
   environment.etc."ly/lang/nl.ini".source =
-    /home/lieke/.config/ly/nl.ini;
+    /home/remi/.config/ly/nl.ini;
 
 
 
@@ -93,7 +94,6 @@
   plasma-browser-integration
   konsole
   elisa
-  gwenview
   discover
   okular
 ];
@@ -128,19 +128,19 @@
   };
 
 # User
-  users.users.lieke = {
+  users.users.remi = {
     isNormalUser = true;
-    description = "Lieke";
+    description = "Remilia";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       kdePackages.kate
-    #  thunderbird
+      kdePackages.ark
     ];
   };
 
 # 2nd drive
   fileSystems."/mnt/1TB" = {
-    device = "UUID=8ccc2640-88ef-46bc-8284-b34bbb2c0681";
+    device = "UUID=137d7e54-7a4e-452e-a0ae-d6f256007179";
     fsType = "xfs";
     options = [ "defaults" ];
   };
@@ -182,7 +182,6 @@
     kitty
     librewolf
     input-remapper
-    qimgv
     lunar-client
     vlc
     r2modman
@@ -192,7 +191,12 @@
     cider-2
     openssh
     xfsprogs
-    unrar
+    fastfetch
+    pciutils # neofetch gpu
+    mesa-demos # neofetch gpu
+    opentabletdriver
+    xclicker
+    osu-lazer-bin
   ];
 
 
