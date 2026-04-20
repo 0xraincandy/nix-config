@@ -1,4 +1,10 @@
-neofetch --backend kitty --source /home/remi/.config/neofetch/png/Seija.png
+if [[ $- == *i* ]]; then
+  ~/.config/neofetch/neofetch --backend kitty --source "$HOME/.config/neofetch/png/mabel5.png"
+fi
+
+neofetch() {
+  "$HOME/.config/neofetch/neofetch" "$@"
+}
 
 alias update='sudo nixos-rebuild switch --upgrade'
 alias clean='sudo nix-collect-garbage -d'
