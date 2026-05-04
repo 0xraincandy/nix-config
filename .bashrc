@@ -1,5 +1,5 @@
 if [[ $- == *i* ]]; then
-  ~/.config/neofetch/neofetch --backend kitty --source "$HOME/.config/neofetch/png/mabel5.png"
+  ~/.config/neofetch/neofetch --backend kitty --source "$HOME/.config/neofetch/png/lorina3.png"
 fi
 
 neofetch() {
