@@ -6,7 +6,7 @@ in
 {
   home.username = "rain";
   home.homeDirectory = "/home/rain";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 
   programs.home-manager.enable = true;
 
@@ -17,12 +17,6 @@ in
 
   home.file.".config/kitty".source =
     dotfiles + "/kitty";
-
-  home.file.".config/plasma-org.kde.plasma.desktop-appletsrc".source =
-  dotfiles + "/plasma/plasma-org.kde.plasma.desktop-appletsrc";
-
-  home.file.".config/plasmashellrc".source =
-  dotfiles + "/plasma/plasmashellrc";
 
   programs.bash = {
   enable = true;
