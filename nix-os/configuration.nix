@@ -8,6 +8,7 @@
   imports = [
       ./hardware-configuration.nix
       ./modules/boot.nix
+      ./modules/services.nix
       ./modules/environment.nix
       ./modules/etc.nix
       ./modules/gaming.nix
@@ -15,7 +16,6 @@
       ./modules/network.nix
       ./modules/packages.nix
       ./modules/plasma-ly.nix
-      ./modules/services.nix
       ./modules/user.nix
     ];
 

@@ -7,6 +7,10 @@
 
   i18n.defaultLocale = "nl_NL.UTF-8";
 
+  i18n.supportedLocales = [
+  "nl_NL.UTF-8/UTF-8"
+];
+
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "nl_NL.UTF-8";
     LC_IDENTIFICATION = "nl_NL.UTF-8";
@@ -16,7 +20,7 @@
     LC_NUMERIC = "nl_NL.UTF-8";
     LC_PAPER = "nl_NL.UTF-8";
     LC_TELEPHONE = "nl_NL.UTF-8";
-    LC_TIME = "fi_FI.UTF-8";
+    LC_TIME = "nl_NL.UTF-8";
   };
 
   services.xserver.xkb = {

@@ -7,9 +7,9 @@
   networking.hostName = "nixos";
 
   fileSystems."/mnt/1TB" = {
-    device = "UUID=137d7e54-7a4e-452e-a0ae-d6f256007179";
-    fsType = "xfs";
-    options = [ "defaults" ];
+  device = "UUID=022d009f-3d08-434b-960e-8a7b53064890";
+  fsType = "xfs";
+  options = [ "defaults" ];
   };
 
   security.sudo.extraConfig = "Defaults pwfeedback";
