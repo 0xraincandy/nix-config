@@ -31,6 +31,6 @@
     osu-lazer-bin
     kdePackages.ark
     kdePackages.kate
-    mangohud
+    irssi
   ];
 }
