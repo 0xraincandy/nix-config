@@ -17,7 +17,15 @@
       ./modules/packages.nix
       ./modules/plasma-ly.nix
       ./modules/user.nix
+
+      <home-manager/nixos>
     ];
+
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+
+  home-manager.users.rain = import ./home.nix;
 
   system.stateVersion = "25.11";
 
