@@ -17,7 +17,7 @@
     lunar-client
     vlc
     r2modman
-    wine
+    wineWowPackages.full
     dxvk
     protonplus
     cider-2
@@ -32,5 +32,6 @@
     kdePackages.ark
     kdePackages.kate
     irssi
+    mangohud
   ];
 }
