@@ -37,7 +37,7 @@ in
     if [[ $- == *i* ]]; then
       $HOME/.config/neofetch/neofetch \
         --backend kitty \
-        --source $HOME/.config/neofetch/png/lorina3.png
+        --source $HOME/.config/neofetch/png/lain.png
     fi
 
     PS1="\[\033[1;32m\][\u@\h:\w]\$\[\033[0m\] "
