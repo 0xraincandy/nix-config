@@ -25,7 +25,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.rain = import ./home.nix;
+  home-manager.users.lesley = import ./home.nix;
 
   system.stateVersion = "26.05";
 

@@ -4,7 +4,7 @@ let
   dotfiles = ./.dotfiles;
 in
 {
-  home.username = "rain";
+  home.username = "lesley";
   home.homeDirectory = "/home/lesley";
   home.stateVersion = "26.05";
 
@@ -40,7 +40,7 @@ in
         --source $HOME/.config/neofetch/png/lain.png
     fi
 
-    PS1="\[\033[1;32m\][\u@\h:\w]\$\[\033[0m\] "
+    PS1="\[\e[38;2;194;246;255m\][\u@\h:\w]\\$\[\e[0m\] "
   '';
 };
 }

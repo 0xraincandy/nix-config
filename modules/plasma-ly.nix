@@ -24,6 +24,7 @@
   elisa
   discover
   okular
+  qrca
 ];
 
 }
