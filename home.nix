@@ -5,7 +5,7 @@ let
 in
 {
   home.username = "rain";
-  home.homeDirectory = "/home/rain";
+  home.homeDirectory = "/home/lesley";
   home.stateVersion = "26.05";
 
   programs.home-manager.enable = true;
