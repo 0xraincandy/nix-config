@@ -7,13 +7,13 @@
     enable = true;
     theme = "sddm-lain-wired-theme";
 
+    autoNumlock = true;
 
     extraPackages = with pkgs.kdePackages; [
       qtmultimedia
       qt5compat
     ];
   };
-
 
   environment.systemPackages = [
     (pkgs.stdenv.mkDerivation {
@@ -37,4 +37,9 @@
     okular
     qrca
   ];
+
+  environment.etc."xdg/kcminputrc".text = ''
+    [Keyboard]
+    NumLock=0
+  '';
 }
